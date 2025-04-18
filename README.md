@@ -9,7 +9,7 @@ Welcome to the Machine Learning Week project! In this project, you’ll apply ma
 - **Deployment**: 
     - Create a REST API using FastAPI or Flask.
     - Build a frontend using Streamlit.
-    - Deploy both the Streamlit and the API.
+    - Deploy both the Streamlit app and the API on [Render](https://render.com/).
 - **Data**: Raw and cleaned datasets.
 - **Presentation**: A final presentation summarizing your project (details below).
 - **Requirements file**: List of dependencies for the project.
