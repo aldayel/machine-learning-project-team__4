@@ -1,106 +1,86 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Nt1hroEP)
+# 🏋️‍♀️ Fit Vision - Workout Recommendation System
 
-# 🚀 Machine Learning Week Project: Predictive Modeling and Deployment
+Fit Vision is a machine learning-powered system designed to recommend workout categories and generate personalized exercise plans based on user profiles (age, gender, BMI, workout intensity, etc.). It includes both a predictive model for workout category classification and an exercise plan generator using the ExerciseDB API also a calories calculator. 
 
-## 📢 Announcement
-Welcome to the Machine Learning Week project! In this project, you’ll apply machine learning to solve a real-world problem using a public dataset. Your goal is to build, evaluate, and deploy an ML model.
+---
 
-## 📝 Deliverables
-- **Python Notebooks**: Data collection, cleaning, modeling, and evaluation.
-- **Deployment**: 
-    - Create a REST API using FastAPI or Flask.
-    - Build a frontend using Streamlit.
-    - Deploy both the Streamlit app and the API on [Render](https://render.com/).
-- **Data**: Raw and cleaned datasets.
-- **Presentation**: A final presentation summarizing your project (details below).
-- **Requirements file**: List of dependencies for the project.
-- **README**: Project overview and instructions.
+## 👥 Team Members
 
-## 📚 Suggested README Template:
-<details>
-<summary>Click to Expand Template</summary>
-
-## Team Members
-- [Team Member 1 Name]
-- [Team Member 2 Name]
-- [Team Member 3 Name]
-- [Team Member 4 Name]
-- [Team Member 5 Name]
+-Najla Almarshde
+-Wasan Alotaibi
+-Abdullah Aldayel
+-Faisal Almufarrih
+-Abdulmohsen Aldughayem
 
 
 
-## Data Source
-- Description of data source(s).
-- Link to data or scraping details (if applicable).
+---
+
+## 📊 Data Source
+- **Dataset**: [Workout & Fitness Tracker Dataset](https://www.kaggle.com/datasets/arashnic/workout-and-fitness-tracker-data) from Kaggle.
+- **Description**: Contains user demographics, workout durations, intensities, and workout types.
+- **External API**: [ExerciseDB API](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/) for fetching exercise details (body part, target muscle, equipment, GIFs).
+
+---
 
 ## 🗂️ Project Structure
 
 ```bash
-    ├── data/
-    │   ├── raw/             # Original data files
-    │   ├── processed/       # Cleaned and transformed data
-    ├── notebooks/
-    │   ├── data_handelling/             # Original data files
-    |   |  ├── 01_data_collection.ipynb  # Data collection (if scraped)
-    │   |  ├── 02_data_cleaning.ipynb    # Data cleaning and preprocessing
-    │   ├── model_training/       # Model training and evaluation
-    ├── deployment/          # Files for deployment (if applicable)
-    ├── slides/              # Presentation slides (e.g., .pptx or .pdf)
-    ├── requirements.txt     # Python dependencies
-    ├── README.md            # Project overview and instructions
+├── data/
+│   ├── cleaned_workout_fitness_tracker_data.csv  # Processed data
+│   ├── workout_fitness_tracker_data.csv          # Original dataset
+├── deployment/
+│   ├── api.py                                    # API endpoint for deployment
+│   ├── app.py                                    # Main deployment application
+│   ├── generate_workout_plan.py                  # Logic for exercise plan generation
+│   ├── label_encoders.joblib                     # Encoded labels for model inference
+│   ├── recommendation_model.joblib               # Trained classification model
+│   ├── recommender_model_training.py             # Model training script
+├── notebooks/
+│   ├── Recommend_workout_model.ipynb     
+│   ├── Recommendatio_RF.ipynb         # EDA, model training, evaluation
+├── slides/  
+│   ├── Fit-Vision-Presentation.pdf                                     # Presentation slides
+├── README.md                                     # Project documentation
 ```
 
+---
+
 ## 🛠️ Tools & Libraries
-- **Python**: [list here]
-- **Deployment**: [list here].
+- **Python**: `pandas`, `numpy`, `scikit-learn`, `joblib`, `requests`
+- **Deployment**: `FastAPI`, `Uvicorn`
+- **Visualization**: `matplotlib`, `seaborn`
+
+---
 
 ## 🚀 Usage
-1. Clone the repository:
+
+1. **Clone the repository**:
    ```bash
    git clone [repo_url]
-2. Install depencdencies 
-    ```bash
-    pip install -r requirements.txt
-3. Run notebooks in order
-    ```bash
-     ...
+   cd [repo_name]
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run Jupyter notebooks for data processing and model training**:
+   ```bash
+   jupyter notebook notebooks/Recommend_workout_model.ipynb
+   ```
+
+4. **Launch the API (optional)**:
+   ```bash
+   cd deployment
+   uvicorn api:app --reload
+   ```
+
 ---
-</details>
 
-
-## 📌 Key Tips:
-
-<details>
-<summary>Click to Expand Tips</summary>
-
-1. **Data Handling**:
-   - Document your data collection and cleaning processes clearly. Explain how raw data is transformed into a usable format.
-   - Handle missing values and outliers carefully; they can impact model performance.
-
-2. **Model Training**:
-   - Choose a model that is well-suited for the task and ensure that you evaluate it thoroughly (cross-validation, performance metrics, etc.).
-   - Experiment with hyperparameter tuning to improve results.
-
-3. **Deployment**:
-   - If deploying, ensure the model can serve predictions efficiently. Use frameworks like Streamlit or Flask for a simple interface.
-   - Test the deployment in real scenarios for robustness.
-
-4. **Presentation**:
-   - Keep your slides concise, focusing on the key problem, approach, and results.
-   - Use visuals like charts, graphs, and model performance metrics to back up your conclusions.
-5. **Emphasize collaboration and version control through GitHub.**
-
-
-</details>
-
-
-## 🔗 Helpful Links
-- [FastAPI Docs](https://fastapi.tiangolo.com/)
-- [Render Deployment Guide](https://render.com/docs/deploy-fastapi)
-- [Streamlit Docs](https://docs.streamlit.io/)
-- [Kaggle Datasets](https://www.kaggle.com/datasets)
-- [Scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
-- [TensorFlow Tutorials](https://www.tensorflow.org/tutorials)
-- [PyTorch Tutorials](https://pytorch.org/tutorials/)
-
-### Good Look!
+## 🎯 Key Features
+- Predict workout category (`Endurance`, `High Effort`, `Flexibility`) based on user input.
+- Generate personalized exercise plans:
+  - Based on **muscle target**, **body part**, or **full-body**.
+  - Fetches exercise images, equipment, and body part details from the ExerciseDB API.
