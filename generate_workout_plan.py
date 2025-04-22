@@ -1,7 +1,7 @@
 import requests
 
 API_HEADERS = {
-    'x-rapidapi-key': "db8db422e6msh5eccdd09c42ed49p112602jsn9e8d11c9c07a",
+    'x-rapidapi-key': "e90a745955mshaef134b6f28017ep1ed56bjsn7fd09b596b4c",
     'x-rapidapi-host': "exercisedb.p.rapidapi.com"
 }
 
