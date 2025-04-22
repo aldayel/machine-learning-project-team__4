@@ -5,6 +5,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, classification_report
+import os
+
+# Create 'model' directory if it doesn't exist
+os.makedirs("model", exist_ok=True)
 
 # Load dataset
 df = pd.read_csv("workout_fitness_tracker_data.csv")
@@ -53,23 +57,19 @@ for col in ['Gender', 'Workout Intensity', 'Workout Category']:
 X = df.drop(columns=['Workout Type', 'Workout Category'])
 y = df['Workout Category']
 
-# Save the feature names for later use in the API
-feature_names = X.columns.tolist()
-
-# Train/test split
+# Train the model
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Train model
 rf_model = RandomForestClassifier(random_state=42)
 rf_model.fit(X_train, y_train)
 
-# Evaluate
+# Evaluate the model (optional)
 y_pred = rf_model.predict(X_test)
 print("✅ Accuracy:", accuracy_score(y_test, y_pred))
-print("✅ F1 Score:", f1_score(y_test, y_pred, average="macro"))
-print("\nClassification Report:\n", classification_report(y_test, y_pred))
+print("✅ F1 Score:", f1_score(y_test, y_pred, average='weighted'))
+print("✅ Classification Report:\n", classification_report(y_test, y_pred))
 
-# Save everything
-joblib.dump(rf_model, "recommendation_model.pkl")
-joblib.dump(label_encoders, "recommender_label_encoders.pkl")
-joblib.dump(feature_names, "recommender_feature_names.pkl")
+# Save model and encoders
+joblib.dump(rf_model, "model/recommendation_model.joblib")
+joblib.dump(label_encoders, "model/label_encoders.joblib")
+print("✅ Model and encoders saved to /model folder.")
+
