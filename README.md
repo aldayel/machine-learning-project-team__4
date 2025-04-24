@@ -72,6 +72,6 @@ Fitness Vision is a machine learning-powered system designed to recommend workou
 - **Personalized Exercise Plans**:  
   - Suggests exercises targeting **specific muscles**, **body parts**, or **full-body routines**.  
   - Integrates with **ExerciseDB API** to provide:
-    - Exercise images  
+    - Exercise GIFs  
     - Equipment details  
     - Targeted body parts information
