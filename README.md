@@ -1,7 +1,6 @@
 # 🏋️‍♀️ Fitness Vision - Workout Recommendation System
 
 Fitness Vision is a machine learning-powered system designed to recommend workout categories and generate personalized exercise plans based on user profiles (age, gender, BMI, workout intensity, etc.). It includes both a predictive model for workout category classification and an exercise plan generator using the ExerciseDB API, along with a calories calculator.
-
 ---
 
 ## 👥 Team Members
