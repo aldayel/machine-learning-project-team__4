@@ -75,5 +75,3 @@ Fitness Vision is a machine learning-powered system designed to recommend workou
     - Exercise images  
     - Equipment details  
     - Targeted body parts information
-
-
