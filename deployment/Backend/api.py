@@ -5,7 +5,6 @@ from generate_workout_plan import generate_custom_plan
 
 app = FastAPI()
 
-# Load the model and encoders
 recommender_model = joblib.load("recommendation_model.joblib")
 label_encoders = joblib.load("label_encoders.joblib")
 feature_names = ['Age', 'Gender', 'BMI', 'Duration Per Day', 'Workout Intensity']
